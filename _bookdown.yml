@@ -1,0 +1,5 @@
+book_filename: "EVCS-3201"
+delete_merged_file: true
+language:
+  ui:
+    chapter_name: ""
