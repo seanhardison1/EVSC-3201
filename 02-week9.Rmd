@@ -1,13 +1,6 @@
 # Intro to Stream Ecology (Week 9)
 
-## Stream ecology 
-
-**Limnology** is the study of inland waterways. When waterways are characterized by flowing water, such as streams, rivers, or estuaries, we refer to them as **lotic** ecosystems. 
-
-```{r, echo = F, fig.align="center", fig.cap="Several **abiotic** and **biotic** factors impact the ecology of lotic ecosystems. A complete listing of these factors is available in Table 1 on page 30 of your lab manual."}
-knitr::include_graphics("images/water-resource-integrity.png")
-```
-
+## Supplemental videos
 
 ### Stream stressors: impervious surfaces {-}
 
@@ -21,16 +14,32 @@ knitr::include_url("https://www.youtube.com/embed/wZGzqDfoIks")
 knitr::include_url("https://www.youtube.com/embed/jIGoCM2sCBM")
 ```
 
-### Stream stressors: flow alteration {-}
+### Stream characteristics: pools and riffles {-}
 
 ```{r, echo = F}
-knitr::include_url("https://www.youtube.com/embed/RgHWO-9nxb8")
+knitr::include_url("https://www.youtube.com/embed/RGM1X6rcWEE")
 ```
 
 ## Discussion questions 
 
-1. Scientists from the Smithsonian Environmental Research Center use biodiversity assessments to quantify the health of stream habitats. How would you expect an increase in nearby impervious surfaces to affect the **abundance** and **diversity** of stream macroinvertebrates?
+Video 1. Scientists from the Smithsonian Environmental Research Center use biodiversity assessments to quantify the health of stream habitats. How would you expect an increase in nearby impervious surfaces to affect the **abundance** and **biodiversity** of stream macroinvertebrates? Why?
 
-2. In Northern Virginia, rapid development has led to increased run-off and subsequent stream erosion. According to the video about Baltimore County stream restoration, what are two methods that are used to restore streams in developed areas?
+Video 2. In Northern Virginia, rapid development has led to increased run-off and subsequent stream erosion. According to the video about Baltimore County stream restoration, what are two methods that are used to restore streams in developed areas?
 
+Video 3. Pool and riffle sequences are characterized by unique flow characteristics. After reading pages 29-35 in the lab manual and watching the video on pools and riffles, would you expect biodiversity and abundance to be higher in pools or in riffles? Why? 
 
+## Assignments 
+
+Assignments are due on March 29th by 2 pm.
+
+1. Use this week's reading (pages 29-35 in your lab manual) and the embedded videos to answer the discussion questions listed above. Submit in a word document.
+
+2. Don't forget that forest lab questions and abstract are also due!
+
+3. The stream lab involves calculating Simpson's diversity index (D) (lab manual pg. 36) and species [rank abundance curves](https://en.wikipedia.org/wiki/Rank_abundance_curve). Download the file `dinosaur_example.xlsx` from collab, and see if you can calculate D and rank abundance from the given abundance data "sampled" at Site A and Site B. Give it a shot over next week and we will finish/discuss it in class.
+
+Here's the Excel calculation for **Site A**:
+
+```{r, echo = F, fig.align='center'}
+knitr::include_graphics("images/dinosaur_example.gif")
+```

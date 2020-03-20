@@ -15,4 +15,4 @@ library(tidyverse)
 
 # Introduction {-}
 
-In light of the extenuating circumstances regarding COVID-19, I've decided to experiment with a new format for teaching the Fundamental of Ecology Lab. For the rest of the semester, I'll add instructions, notes, and videos to tabs on this site. The goal of these materials is to complement the lab manual by providing some interactivity that we're missing out on by not meeting face-to-face. 
+In light of the extenuating circumstances regarding COVID-19, I've decided to experiment with a new format for teaching the Fundamental of Ecology Lab. For the rest of the semester, I'll add instructions, notes, and videos to tabs on this site. The goal of these materials is to supplement the lab manual by providing some interactivity that we're missing out on by not meeting face-to-face. Assignments due each week will be added to the bottom of each page.
