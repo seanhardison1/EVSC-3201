@@ -2,7 +2,7 @@
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Forest Lab Data Analysis: Results {-}
+# Forest Lab Data Analysis: Results 
 
 See below for results from the forest lab field study. When answering the questions on page 27 of your lab manual, make sure your interpretations align with what's shown here. 
 
