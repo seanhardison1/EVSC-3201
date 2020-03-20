@@ -213,7 +213,8 @@ ggplot(data = rel_freq) +
                fill = `Tree ID`), stat = "identity") +
   
   #add color palette 
-  scale_fill_manual(values = as.vector(pals::polychrome(35)))
+  scale_fill_manual(values = as.vector(pals::polychrome(35)))+
+  theme_bw()
 ```
 
 ### Species relative dominance {-}
@@ -234,7 +235,8 @@ ggplot(data = rel_dom) +
                fill = `Tree ID`), stat = "identity") +
   
   #add color palette 
-  scale_fill_manual(values = as.vector(pals::polychrome(35)))
+  scale_fill_manual(values = as.vector(pals::polychrome(35)))+
+  theme_bw()
 ```
 
 ### Species importance {-}
@@ -256,7 +258,8 @@ ggplot(data = importance) +
            position = "dodge", stat = "identity") +
   
   #add color palette 
-  scale_fill_manual(values = as.vector(pals::polychrome(35)))
+  scale_fill_manual(values = as.vector(pals::polychrome(35))) +
+  theme_bw()
 ```
 
 
