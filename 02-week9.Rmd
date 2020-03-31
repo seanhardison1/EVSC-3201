@@ -1,4 +1,4 @@
-# Intro to Stream Ecology (Week 9)
+# Stream Lab (week of 3/27)
 
 ## Supplemental videos
 
@@ -43,3 +43,5 @@ Here's the Excel calculation for **Site A**:
 ```{r, echo = F, fig.align='center'}
 knitr::include_graphics("images/dinosaur_example.gif")
 ```
+
+

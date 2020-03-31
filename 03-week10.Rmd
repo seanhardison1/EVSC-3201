@@ -1,0 +1,6 @@
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+# Inference using T-tests (Week 10)
