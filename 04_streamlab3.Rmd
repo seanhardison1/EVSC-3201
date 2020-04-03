@@ -162,3 +162,5 @@ When referring to a *t* test in the text, you should report the *t* statistic, d
 When presenting results of a *t* test, refer to Table 2 on page 39 of your lab manual.
 
 ### Assignments 
+
+1. This week's assignment is to write the results and discussion sections for your stream lab report. Complete instructions are available on pages 40-41 of your lab manual. The deadline for this assignment is **Friday, April 10th at 2 PM**.
