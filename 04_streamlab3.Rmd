@@ -8,7 +8,7 @@ library(ggtext)
 
 ## Hypothesis testing
 
-The text below was adapted from @zar1984.
+The goal of the text and figures below is to describe the *t* test in a visually intuitive way, and was mostly derived from @zar1984. Further information and another example are provided in your lab manuals on page 36. 
 
 ### The *t* statistic
 
@@ -88,7 +88,7 @@ ggplot(data = df3) +
   theme(legend.title  = element_blank())
 ```
 
-Some sample means are more likely than others. In this example, given the null hypothesis of the population mean being equal to 10 $(H_0: \mu = 10)$, the probability of a sample mean being less than 7.6 cm is less than 2.5%, and the probability of a sample mean being greater than 12.4 cm is less than 2.5%. Therefore, the probability of a sample mean as extreme or more extreme than either value is less than 5%, or 0.05 (Fig. 4.4).
+Some sample means are more likely than others. In this example, given the null hypothesis of the population mean being equal to 10 $(H_0: \mu = 10)$, the probability of a sample mean being less than 7.6 cm is less than 2.5%, and the probability of a sample mean being greater than 12.4 cm is less than 2.5%. Therefore, the probability of a sample mean as extreme or more extreme than either value is less than 5%, or 0.05 (Fig. 4.4). 
 
 ```{r, fig.cap = "The *t* distribution is centered around *t* = 0. However, we can contextualize the distribution within our example by adding the hypothesized population mean to *t* $(t + 10\\;\\textrm{cm})$.", echo = F}
 us <- tibble(x = c(7.6, 12.4, mean(df2$x) + 10),
@@ -120,7 +120,7 @@ $$t = \frac{\bar{X_1} - \bar{X_2}}{s_{\bar{X_1} - \bar{X_2}}}$$
 
 Therefore, when the above *t* statistic is large, it becomes unlikely that two samples were drawn from the same population, and it follows that each *t* statistic is associated with a probability ($P$), just like in our previous example. If $P$ < 0.05, then we can reject the null hypothesis of no difference between the means of our two samples.
 
-This P value is equivalent to the probability of the *t* statistic occurring by chance alone upon repeated sampling given that the null hypothesis is true. When we reject a null hypothesis based on P < 0.05 using a two-sample *t* test, it means that the probability of seeing differences as larger or larger than what we identified is less than 5% if the samples were drawn from the same population.
+This P value is equivalent to the probability of the *t* statistic occurring by chance alone upon repeated sampling given that the null hypothesis is true. When we reject a null hypothesis based on P < 0.05 using a two-sample *t* test, it means that the probability of seeing differences as larger or larger than what we identified is less than 5% if the samples were drawn from the same population. 
 
 ### *t* tests in R and Excel
 
@@ -157,4 +157,8 @@ knitr::include_graphics("images/t_test_example.gif")
 
 ### What do I report?
 
-When finished with a *t* test, you should report the *t* statistic, degrees of freedom, and P value.
+When referring to a *t* test in the text, you should report the *t* statistic, degrees of freedom, and P value.
+
+When presenting results of a *t* test, refer to Table 2 on page 39 of your lab manual.
+
+### Assignments 
