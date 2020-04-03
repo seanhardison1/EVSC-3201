@@ -1,9 +1,5 @@
 # Stream Lab 2 (week of 4/3)
 
-```{r, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 ## Assignments
 
 This week's assignment is to complete the introduction and methods sections for your Stream Lab report. The due date for this assignment is **Monday, April 6th at 11:59 PM**. 

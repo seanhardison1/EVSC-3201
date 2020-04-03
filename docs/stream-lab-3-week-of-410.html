@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4 Stream Lab 3 (week of 4/10) | EVSC 3201 Materials</title>
+  <meta name="description" content="EVSC-3201 materials and notes for students" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4 Stream Lab 3 (week of 4/10) | EVSC 3201 Materials" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="EVSC-3201 materials and notes for students" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 Stream Lab 3 (week of 4/10) | EVSC 3201 Materials" />
+  
+  <meta name="twitter:description" content="EVSC-3201 materials and notes for students" />
+  
+
+<meta name="author" content="Sean Hardison" />
+
+
+<meta name="date" content="2020-04-02" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="stream-lab-2-week-of-43.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">EVSC 3201</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="1" data-path="forest-lab-data-analysis-results.html"><a href="forest-lab-data-analysis-results.html"><i class="fa fa-check"></i><b>1</b> Forest Lab Data Analysis: Results</a><ul>
+<li class="chapter" data-level="1.1" data-path="forest-lab-data-analysis-results.html"><a href="forest-lab-data-analysis-results.html#processing-and-analytical-code"><i class="fa fa-check"></i><b>1.1</b> Processing and analytical code</a></li>
+<li class="chapter" data-level="1.2" data-path="forest-lab-data-analysis-results.html"><a href="forest-lab-data-analysis-results.html#environmental-data-barplots-q1"><i class="fa fa-check"></i><b>1.2</b> Environmental data: barplots (Q1)</a><ul>
+<li class="chapter" data-level="" data-path="forest-lab-data-analysis-results.html"><a href="forest-lab-data-analysis-results.html#slope-angle"><i class="fa fa-check"></i>Slope angle</a></li>
+<li class="chapter" data-level="" data-path="forest-lab-data-analysis-results.html"><a href="forest-lab-data-analysis-results.html#horizon-thickness"><i class="fa fa-check"></i>Horizon thickness</a></li>
+<li class="chapter" data-level="" data-path="forest-lab-data-analysis-results.html"><a href="forest-lab-data-analysis-results.html#soil-temperature"><i class="fa fa-check"></i>Soil temperature</a></li>
+<li class="chapter" data-level="" data-path="forest-lab-data-analysis-results.html"><a href="forest-lab-data-analysis-results.html#soil-moisture"><i class="fa fa-check"></i>Soil moisture</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="forest-lab-data-analysis-results.html"><a href="forest-lab-data-analysis-results.html#environmental-data-linear-models-and-scatter-plots-q2"><i class="fa fa-check"></i><b>1.3</b> Environmental data: linear models and scatter plots (Q2)</a><ul>
+<li class="chapter" data-level="" data-path="forest-lab-data-analysis-results.html"><a href="forest-lab-data-analysis-results.html#soil-temperature-soil-moisture"><i class="fa fa-check"></i>soil temperature ~ soil moisture</a></li>
+<li class="chapter" data-level="" data-path="forest-lab-data-analysis-results.html"><a href="forest-lab-data-analysis-results.html#soil-moisture-horizon-thickness"><i class="fa fa-check"></i>soil moisture ~ horizon thickness</a></li>
+<li class="chapter" data-level="" data-path="forest-lab-data-analysis-results.html"><a href="forest-lab-data-analysis-results.html#soil-temperature-horizon-thickness"><i class="fa fa-check"></i>soil temperature ~ horizon thickness</a></li>
+<li class="chapter" data-level="" data-path="forest-lab-data-analysis-results.html"><a href="forest-lab-data-analysis-results.html#horizon-thickness-slope-angle"><i class="fa fa-check"></i>horizon thickness ~ slope angle</a></li>
+<li class="chapter" data-level="" data-path="forest-lab-data-analysis-results.html"><a href="forest-lab-data-analysis-results.html#soil-moisture-slope-angle"><i class="fa fa-check"></i>soil moisture ~ slope angle</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="forest-lab-data-analysis-results.html"><a href="forest-lab-data-analysis-results.html#table-of-model-summaries-q4"><i class="fa fa-check"></i><b>1.4</b> Table of model summaries (Q4)</a></li>
+<li class="chapter" data-level="1.5" data-path="forest-lab-data-analysis-results.html"><a href="forest-lab-data-analysis-results.html#tree-community-composition"><i class="fa fa-check"></i><b>1.5</b> Tree community composition</a><ul>
+<li class="chapter" data-level="" data-path="forest-lab-data-analysis-results.html"><a href="forest-lab-data-analysis-results.html#species-relative-frequency"><i class="fa fa-check"></i>Species relative frequency</a></li>
+<li class="chapter" data-level="" data-path="forest-lab-data-analysis-results.html"><a href="forest-lab-data-analysis-results.html#species-relative-dominance"><i class="fa fa-check"></i>Species relative dominance</a></li>
+<li class="chapter" data-level="" data-path="forest-lab-data-analysis-results.html"><a href="forest-lab-data-analysis-results.html#species-importance"><i class="fa fa-check"></i>Species importance</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="stream-lab-week-of-327.html"><a href="stream-lab-week-of-327.html"><i class="fa fa-check"></i><b>2</b> Stream Lab (week of 3/27)</a><ul>
+<li class="chapter" data-level="2.1" data-path="stream-lab-week-of-327.html"><a href="stream-lab-week-of-327.html#supplemental-videos"><i class="fa fa-check"></i><b>2.1</b> Supplemental videos</a><ul>
+<li class="chapter" data-level="" data-path="stream-lab-week-of-327.html"><a href="stream-lab-week-of-327.html#stream-stressors-impervious-surfaces"><i class="fa fa-check"></i>Stream stressors: impervious surfaces</a></li>
+<li class="chapter" data-level="" data-path="stream-lab-week-of-327.html"><a href="stream-lab-week-of-327.html#stream-restoration-in-baltimore-county"><i class="fa fa-check"></i>Stream restoration in Baltimore County</a></li>
+<li class="chapter" data-level="" data-path="stream-lab-week-of-327.html"><a href="stream-lab-week-of-327.html#stream-characteristics-pools-and-riffles"><i class="fa fa-check"></i>Stream characteristics: pools and riffles</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="stream-lab-week-of-327.html"><a href="stream-lab-week-of-327.html#discussion-questions"><i class="fa fa-check"></i><b>2.2</b> Discussion questions</a></li>
+<li class="chapter" data-level="2.3" data-path="stream-lab-week-of-327.html"><a href="stream-lab-week-of-327.html#assignments"><i class="fa fa-check"></i><b>2.3</b> Assignments</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="stream-lab-2-week-of-43.html"><a href="stream-lab-2-week-of-43.html"><i class="fa fa-check"></i><b>3</b> Stream Lab 2 (week of 4/3)</a><ul>
+<li class="chapter" data-level="3.1" data-path="stream-lab-2-week-of-43.html"><a href="stream-lab-2-week-of-43.html#assignments-1"><i class="fa fa-check"></i><b>3.1</b> Assignments</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="stream-lab-3-week-of-410.html"><a href="stream-lab-3-week-of-410.html"><i class="fa fa-check"></i><b>4</b> Stream Lab 3 (week of 4/10)</a><ul>
+<li class="chapter" data-level="4.1" data-path="stream-lab-3-week-of-410.html"><a href="stream-lab-3-week-of-410.html#hypothesis-testing"><i class="fa fa-check"></i><b>4.1</b> Hypothesis testing</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="stream-lab-3-week-of-410.html"><a href="stream-lab-3-week-of-410.html#the-t-statistic"><i class="fa fa-check"></i><b>4.1.1</b> The <em>t</em> statistic</a></li>
+<li class="chapter" data-level="4.1.2" data-path="stream-lab-3-week-of-410.html"><a href="stream-lab-3-week-of-410.html#the-two-sample-t-test"><i class="fa fa-check"></i><b>4.1.2</b> The two-sample <em>t</em> test</a></li>
+<li class="chapter" data-level="4.1.3" data-path="stream-lab-3-week-of-410.html"><a href="stream-lab-3-week-of-410.html#t-tests-in-r-and-excel"><i class="fa fa-check"></i><b>4.1.3</b> <em>t</em> tests in R and Excel</a></li>
+<li class="chapter" data-level="4.1.4" data-path="stream-lab-3-week-of-410.html"><a href="stream-lab-3-week-of-410.html#what-do-i-report"><i class="fa fa-check"></i><b>4.1.4</b> What do I report?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">EVSC 3201 Materials</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="stream-lab-3-week-of-410" class="section level1">
+<h1><span class="header-section-number">4</span> Stream Lab 3 (week of 4/10)</h1>
+<div id="hypothesis-testing" class="section level2">
+<h2><span class="header-section-number">4.1</span> Hypothesis testing</h2>
+<p>The text below was adapted from <span class="citation">Zar (<a href="#ref-zar1984">1984</a>)</span>.</p>
+<div id="the-t-statistic" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> The <em>t</em> statistic</h3>
+<p><strong>Hypothesis testing</strong> is all about drawing inferences about a broader <em>population</em> given a <em>representative sample</em>. A common approach to hypothesis testing involves comparing the means of two samples. For example, consider an experiment where nitrogen fertilizer was added to the soils of 40 randomly selected plants, with 40 other plants not recieving the nutrient treatment. The heights of each plant were measured after two weeks. The results of the experiment are shown in Figure 3.1.</p>
+<p>In this experiment, our null hypothesis (<span class="math inline">\(H_0\)</span>) is that there is no difference in mean height between the plants recieving nutrient and no-nutrient treatments. We can test this hypothesis using a two sample <em>t</em> test, which is designed to infer differences in two populations being sampled.</p>
+<div class="figure"><span id="fig:compare"></span>
+<img src="EVCS-3201_files/figure-html/compare-1.png" alt="Histograms showing the heights of two groups of plants after two weeks of growth. The orange histogram reflects those plants that recieved a nitrogen treatment and the purple histogram shows the plants that did not." width="672" />
+<p class="caption">
+Figure 4.1: Histograms showing the heights of two groups of plants after two weeks of growth. The orange histogram reflects those plants that recieved a nitrogen treatment and the purple histogram shows the plants that did not.
+</p>
+</div>
+<p>Before we jump into the <em>t</em> test, consider the mean of the no nutrient sample: 10.3. This mean value is representative of only one of many possible means from samples of size 40 that could have been drawn randomly (Fig. 3.2).</p>
+<div class="figure"><span id="fig:unnamed-chunk-21"></span>
+<img src="EVCS-3201_files/figure-html/unnamed-chunk-21-1.png" alt="The distribution of all possible sample means. Our sample mean is only one of many possible outcomes, the most likely of which is the population mean." width="672" />
+<p class="caption">
+Figure 4.2: The distribution of all possible sample means. Our sample mean is only one of many possible outcomes, the most likely of which is the population mean.
+</p>
+</div>
+<p>The distribution of all possible mean values for a given sample size is the <em>t</em> distribution. The shape of the distribution changes according to your <strong>degrees of freedom <span class="math inline">\((v)\)</span></strong>, which is equal to <span class="math inline">\(n - 1\)</span>. Therefore, our sample has <span class="math inline">\(40-1 = 39\)</span> degrees of freedom. As sample size increases, the “tails” of the distribution shrink (Fig. 3.3), reflecting a greater probability of capturing the population mean in your sample.</p>
+<div class="figure"><span id="fig:unnamed-chunk-22"></span>
+<img src="EVCS-3201_files/figure-html/unnamed-chunk-22-1.png" alt="The *t* distribution with a range of degrees of freedom $(v)$. Note how the &quot;tails&quot; become larger when $v$ is small." width="672" />
+<p class="caption">
+Figure 4.3: The <em>t</em> distribution with a range of degrees of freedom <span class="math inline">\((v)\)</span>. Note how the “tails” become larger when <span class="math inline">\(v\)</span> is small.
+</p>
+</div>
+<p>Some sample means are more likely than others. In this example, the probability of a sample mean being less than 7.6 cm is less than 2.5%, and the probability of a sample mean being greater than 12.4 cm is less than 2.5%. Therefore, the probability of a sample mean as extreme or more extreme than either value is less than 5%, or 0.05 (Fig. 3.4) .</p>
+<div class="figure"><span id="fig:unnamed-chunk-23"></span>
+<img src="EVCS-3201_files/figure-html/unnamed-chunk-23-1.png" alt="Another look at the distribution of all possible sample means." width="672" />
+<p class="caption">
+Figure 4.4: Another look at the distribution of all possible sample means.
+</p>
+</div>
+</div>
+<div id="the-two-sample-t-test" class="section level3">
+<h3><span class="header-section-number">4.1.2</span> The two-sample <em>t</em> test</h3>
+<p>It turns out that if two populations have equal variances (the “spread” of the data) and are normally distributed, then the ratio of the difference in means <span class="math inline">\((\bar{X_1} - \bar{X_2})\)</span> to the standard error of the difference between the sample means <span class="math inline">\((s_{\bar{X_1} - \bar{X_2}})\)</span> is <em>t</em> distributed.</p>
+<p>The <em>t</em> statistic for a two-sample <em>t</em> test:</p>
+<p><span class="math display">\[t = \frac{\bar{X_1} - \bar{X_2}}{s_{\bar{X_1} - \bar{X_2}}}\]</span></p>
+<p>Therefore, when the above <em>t</em> statistic is large, it becomes unlikely that two samples were drawn from the same population, and it follows that each <em>t</em> statistic is associated with a probability (<span class="math inline">\(P\)</span>), just like in our previous example. If <span class="math inline">\(P\)</span> &lt; 0.05, then we can reject the null hypothesis of no difference between the means of our two samples.</p>
+<p>This P value is equivalent to the probability of the <em>t</em> statistic occurring by chance alone upon repeated sampling, or phrased differently, the probability of the difference in means between samples occurring by chance alone upon repeated sampling.</p>
+</div>
+<div id="t-tests-in-r-and-excel" class="section level3">
+<h3><span class="header-section-number">4.1.3</span> <em>t</em> tests in R and Excel</h3>
+<div id="r" class="section level4">
+<h4><span class="header-section-number">4.1.3.1</span> R</h4>
+<p>Here I’ll implement the two-sample <em>t</em> test as described above for the plant-nutrient example. In R, two-sample <em>t</em> tests are straightforward once the data are in the correct format.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># first read in data, as practiced in the Forest Lab.</span>
+df &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="dt">file =</span> <span class="st">&quot;/users/seanhardison/documents/git/EVSC-3201/data/nutrient_example.csv&quot;</span>)
+
+<span class="co"># view the first ten rows of data. </span>
+<span class="kw">head</span>(df)</code></pre></div>
+<pre><code>##   no_nitrogen nitrogen_added  X X.1 X.2 X.3 X.4 X.5 X.6 X.7 X.8 X.9 X.10 X.11
+## 1    9.338150       12.56883 NA  NA  NA  NA  NA  NA  NA                      
+## 2   11.718954       13.38245 NA  NA  NA  NA  NA  NA  NA                      
+## 3   12.121667       13.04113 NA  NA  NA  NA  NA  NA  NA                      
+## 4   11.497154       12.94078 NA  NA  NA  NA  NA  NA  NA                      
+## 5    9.963859       11.70358 NA  NA  NA  NA  NA  NA  NA                      
+## 6   11.231945       10.86302 NA  NA  NA  NA  NA  NA  NA</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># do the t test comparing means between nutrient treatments</span>
+<span class="kw">t.test</span>(df<span class="op">$</span>no_nitrogen, df<span class="op">$</span>nitrogen_added)</code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  df$no_nitrogen and df$nitrogen_added
+## t = -12.759, df = 77.952, p-value &lt; 2.2e-16
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -2.920589 -2.132171
+## sample estimates:
+## mean of x mean of y 
+##  10.33504  12.86142</code></pre>
+<p>The results show that <span class="math inline">\(t = -12.79\)</span> and <span class="math inline">\(P &lt; 0.0001\)</span>. Therefore, we can reject the null hypothesis that there was no effect of nitrogen treatment, lending support to the alternative hypothesis that nitrogen is beneficial for plant growth.</p>
+</div>
+<div id="excel" class="section level4">
+<h4><span class="header-section-number">4.1.3.2</span> Excel</h4>
+<p>The process in Excel is just as quick and easy as in R.</p>
+<ol style="list-style-type: decimal">
+<li>Once your spreadsheet is open, select the <strong>Data Analysis</strong> tab</li>
+<li>Next, select <strong>t-Test: Two-Sample Assuming Equal Variances</strong></li>
+<li>Select <strong>Variable 1 Range</strong> and highlight the first column you want to compare</li>
+<li>Select <strong>Variable 2 Range</strong> and highlight the second column you want to compare</li>
+<li>Select <strong>OK</strong></li>
+</ol>
+<p><img src="images/t_test_example.gif" /><!-- --></p>
+</div>
+</div>
+<div id="what-do-i-report" class="section level3">
+<h3><span class="header-section-number">4.1.4</span> What do I report?</h3>
+<p>When finished with a <em>t</em> test, you should report the <em>t</em> statistic, degrees of freedom, and P value.</p>
+
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-zar1984">
+<p>Zar, Jerrold H. 1984. “Biostatistical Analysis, Englewood Cliffs.” <em>NY: Prentice-Hall</em>, 360.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="stream-lab-2-week-of-43.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["EVCS-3201.pdf", "EVCS-3201.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

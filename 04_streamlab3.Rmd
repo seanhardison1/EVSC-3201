@@ -1,0 +1,152 @@
+# Stream Lab 3 (week of 4/10)
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+## Hypothesis testing
+
+The text below was adapted from @zar1984.
+
+### The *t* statistic
+
+**Hypothesis testing** is all about drawing inferences about a broader *population* given a *representative sample*. A common approach to hypothesis testing involves comparing the means of two samples. For example, consider an experiment where nitrogen fertilizer was added to the soils of 40 randomly selected plants, with 40 other plants not recieving the nutrient treatment. The heights of each plant were measured after two weeks. The results of the experiment are shown in Figure 3.1.
+
+In this experiment, our null hypothesis ($H_0$) is that there is no difference in mean height between the plants recieving nutrient and no-nutrient treatments. We can test this hypothesis using a two sample *t* test, which is designed to infer differences in two populations being sampled. 
+
+```{r compare, echo = F, fig.cap = "Histograms showing the heights of two groups of plants after two weeks of growth. The orange histogram reflects those plants that recieved a nitrogen treatment and the purple histogram shows the plants that did not.", message = F}
+set.seed(14)
+df <- tibble(c1 = rnorm(40) + 10,
+                t1 = rnorm(40) + 13)
+label_df <- tibble(label = c("Mean height of control (no nitrogen)",
+                             "Mean height of treatment (nitrogen added)"),
+                   x = c(mean(df$c1),
+                         mean(df$t1)),
+                   y = c(8.5, 8.5))
+ggplot(data = df) +
+  geom_histogram(aes(x = c1), 
+                 fill = "purple", alpha = 0.3) +
+  geom_histogram(aes(x = t1), 
+                 fill = "orange", alpha = 0.3) +
+  geom_segment(aes(x = mean(c1), xend = mean(c1),
+                   y = 0, yend = 8.5), color = "grey50") +
+  geom_segment(aes(x = mean(t1), xend = mean(t1),
+                   y = 0, yend = 8.5), color = "grey50") +
+  ggrepel::geom_text_repel(data = label_df, aes(x = x, 
+                                                 y = y,
+                                                 label = label),
+                           force = T) +
+  ylab("Frequency of occurrence") +
+  xlab("Plant height (cm)") +
+  theme_bw()
+```
+
+Before we jump into the *t* test, consider the mean of the no nutrient sample: `r round(mean(df$c1), 1)`. This mean value is representative of only one of many possible means from samples of size 40 that could have been drawn randomly (Fig. 3.2). 
+
+```{r, fig.cap = "The distribution of all possible sample means. Our sample mean is only one of many possible outcomes, the most likely of which is the population mean.", echo = F}
+df2 <- tibble(x = seq(-4, 4, length=1000)  + 10,
+              y = dt(seq(-4, 4, length=1000), 39))
+us <- tibble(x = c(mean(df$c1), mean(df2$x)),
+             y = c(df2[round(df2$x, 2) == round(mean(df$c1),2),]$y, max(df2$y)),
+             label = c("The mean of our sample!", "The population mean"))
+ggplot(df2) +
+  geom_line(aes(x = x, y = y)) +
+  geom_point(data = us, aes(x = x, y = y), color = "red", size = 2) +
+  ggrepel::geom_label_repel(data = us, aes(x = x, 
+                                           y = y, 
+                                           label = label),
+                            nudge_x = 0.5) +
+  theme_bw() +
+  ylab("Probability") +
+  xlab("All possible sample means for n = 40 (the t distribution)")
+```
+
+The distribution of all possible mean values for a given sample size is the *t* distribution. The shape of the distribution changes according to your **degrees of freedom $(v)$**, which is equal to $n - 1$. Therefore, our sample has $40-1 = 39$ degrees of freedom. As sample size increases, the "tails" of the distribution shrink (Fig. 3.3), reflecting a greater probability of capturing the population mean in your sample. 
+
+```{r, echo = F, fig.cap = 'The *t* distribution with a range of degrees of freedom $(v)$. Note how the "tails" become larger when $v$ is small.'}
+df3 <- tibble(x = rep(seq(-4, 4, length=100), 3),
+       y = c(dt(seq(-4, 4, length=100), 3),
+             dt(seq(-4, 4, length=100), 10),
+             dt(seq(-4, 4, length=100), 30)),
+      Var = rep(c("v = 3",
+              "v = 10",
+              "v = 30"), each = 100))
+df3$Var <- factor(df3$Var, c("v = 3", "v = 10", "v = 30"))
+ggplot(data = df3) +
+  geom_line(aes(x = x, y = y, color = Var)) +
+  xlab("t") +
+  ylab("probability")  +
+  theme_bw() +
+  theme(legend.title  = element_blank())
+```
+
+Some sample means are more likely than others. In this example, the probability of a sample mean being less than 7.6 cm is less than 2.5%, and the probability of a sample mean being greater than 12.4 cm is less than 2.5%. Therefore, the probability of a sample mean as extreme or more extreme than either value is less than 5%, or 0.05 (Fig. 3.4) .
+
+```{r, fig.cap = "Another look at the distribution of all possible sample means.", echo = F}
+us <- tibble(x = c(7.6, 12.4, mean(df2$x)),
+             y = c(0.0253, 0.0253, max(df2$y)),
+             label = c("Low probability of occurrence (<0.025)",
+                       "Low probability of occurrence (<0.025)",
+                       "Most likely to occur"))
+ggplot(df2) +
+  geom_line(aes(x = x, y = y)) +
+  geom_point(data = us, aes(x = x, y = y), color = "red", size = 2) +
+  ggrepel::geom_label_repel(data = us, aes(x = x, 
+                                           y = y, 
+                                           label = label),
+                            # nudge_x = 0.1,
+                            nudge_y = c(0.075,0.075,-0.025)) +
+  theme_bw() +
+  ylab("Probability") +
+  xlab("All possible sample means for n = 40 (the t distribution)")
+```
+
+### The two-sample *t* test
+
+It turns out that if two populations have equal variances (the "spread" of the data) and are normally distributed, then the ratio of the difference in means $(\bar{X_1} - \bar{X_2})$ to the standard error of the difference between the sample means $(s_{\bar{X_1} - \bar{X_2}})$ is *t* distributed. 
+
+The *t* statistic for a two-sample *t* test:
+
+$$t = \frac{\bar{X_1} - \bar{X_2}}{s_{\bar{X_1} - \bar{X_2}}}$$
+
+Therefore, when the above *t* statistic is large, it becomes unlikely that two samples were drawn from the same population, and it follows that each *t* statistic is associated with a probability ($P$), just like in our previous example. If $P$ < 0.05, then we can reject the null hypothesis of no difference between the means of our two samples.
+
+This P value is equivalent to the probability of the *t* statistic occurring by chance alone upon repeated sampling, or phrased differently, the probability of the difference in means between samples occurring by chance alone upon repeated sampling.
+
+### *t* tests in R and Excel
+
+#### R
+
+Here I'll implement the two-sample *t* test as described above for the plant-nutrient example. In R, two-sample *t* tests are straightforward once the data are in the correct format.
+
+```{r}
+# first read in data, as practiced in the Forest Lab.
+df <- read.csv(file = "/users/seanhardison/documents/git/EVSC-3201/data/nutrient_example.csv")
+
+# view the first ten rows of data. 
+head(df)
+
+# do the t test comparing means between nutrient treatments
+t.test(df$no_nitrogen, df$nitrogen_added)
+```
+
+The results show that $t = -12.79$ and $P < 0.0001$. Therefore, we can reject the null hypothesis that there was no effect of nitrogen treatment, lending support to the alternative hypothesis that nitrogen is beneficial for plant growth.
+
+#### Excel
+
+The process in Excel is just as quick and easy as in R.
+
+1. Once your spreadsheet is open, select the **Data Analysis** tab
+2. Next, select **t-Test: Two-Sample Assuming Equal Variances**
+3. Select **Variable 1 Range** and highlight the first column you want to compare
+4. Select **Variable 2 Range** and highlight the second column you want to compare
+5. Select **OK**
+
+```{r, echo = F}
+knitr::include_graphics("images/t_test_example.gif")
+```
+
+### What do I report?
+
+When finished with a *t* test, you should report the *t* statistic, degrees of freedom, and P value.
