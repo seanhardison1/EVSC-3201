@@ -3,6 +3,7 @@
 ```{r, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
+library(ggtext)
 ```
 
 ## Hypothesis testing
@@ -11,7 +12,7 @@ The text below was adapted from @zar1984.
 
 ### The *t* statistic
 
-**Hypothesis testing** is all about drawing inferences about a broader *population* given a *representative sample*. A common approach to hypothesis testing involves comparing the means of two samples. For example, consider an experiment where nitrogen fertilizer was added to the soils of 40 randomly selected plants, with 40 other plants not recieving the nutrient treatment. The heights of each plant were measured after two weeks. The results of the experiment are shown in Figure 3.1.
+**Hypothesis testing** is all about drawing inferences about a broader *population* given a *representative sample*. A common approach to hypothesis testing involves comparing the means of two samples. For example, consider an experiment where nitrogen fertilizer was added to the soils of 40 randomly selected plants, with 40 other plants not recieving the nutrient treatment. The heights of each plant were measured after two weeks. The results of the experiment are shown in Figure 4.1.
 
 In this experiment, our null hypothesis ($H_0$) is that there is no difference in mean height between the plants recieving nutrient and no-nutrient treatments. We can test this hypothesis using a two sample *t* test, which is designed to infer differences in two populations being sampled. 
 
@@ -23,7 +24,7 @@ label_df <- tibble(label = c("Mean height of control (no nitrogen)",
                              "Mean height of treatment (nitrogen added)"),
                    x = c(mean(df$c1),
                          mean(df$t1)),
-                   y = c(8.5, 8.5))
+                   y = c(9, 9))
 ggplot(data = df) +
   geom_histogram(aes(x = c1), 
                  fill = "purple", alpha = 0.3) +
@@ -36,33 +37,39 @@ ggplot(data = df) +
   ggrepel::geom_text_repel(data = label_df, aes(x = x, 
                                                  y = y,
                                                  label = label),
-                           force = T) +
+                           force = T,
+                           nudge_x = c(-0.05, 0.2)) +
   ylab("Frequency of occurrence") +
   xlab("Plant height (cm)") +
   theme_bw()
 ```
 
-Before we jump into the *t* test, consider the mean of the no nutrient sample: `r round(mean(df$c1), 1)`. This mean value is representative of only one of many possible means from samples of size 40 that could have been drawn randomly (Fig. 3.2). 
+Before we jump into the *t* test, consider the mean of the no nutrient sample: `r round(mean(df$c1), 1)`. This mean value is representative of only one of many possible means from samples of size 40 that could have been drawn from the population randomly. If we hypothesize that the true population mean is equal to ten $(H_0: \mu = 10\;\textrm{cm})$, then we can estimate how unlikely our sample mean is by calculating a *t* statistic:
 
-```{r, fig.cap = "The distribution of all possible sample means. Our sample mean is only one of many possible outcomes, the most likely of which is the population mean.", echo = F}
-df2 <- tibble(x = seq(-4, 4, length=1000)  + 10,
+$$t = \frac{\bar{X}-\mu}{s_{\bar{X}}} ,$$
+
+where $\bar{X}$ is the sample mean, $\mu$ is hypothesized population mean, and $s_{\bar{X}}$ is the standard deviation of the sample. If our sample mean also equals 10, then $t = 0$. If we resampled the population a thousand more times, calculated the *t* statistic for each sample mean, and plotted the histogram of all *t* statistics, the shape of the histogram would resemble the line in Figure 4.2.
+
+```{r, fig.cap = "The *t* distribution, describing all possible sample means for n = 40. This *t* distribution is a *probability distribution*.", echo = F}
+df2 <- tibble(x = seq(-4, 4, length=1000),
               y = dt(seq(-4, 4, length=1000), 39))
-us <- tibble(x = c(mean(df$c1), mean(df2$x)),
-             y = c(df2[round(df2$x, 2) == round(mean(df$c1),2),]$y, max(df2$y)),
-             label = c("The mean of our sample!", "The population mean"))
+us <- tibble(x = c(mean(df$c1) - 10, mean(df2$x)),
+             y = c(df2[round(df2$x, 2) == 0.34,]$y , max(df2$y)),
+             label = c("<i>t</i> given a sample mean of 10.3", 
+                       "<i>t</i> given a sample mean of 10 (sample mean = hypothesized population mean)"),
+             hjust = c(-0.1,1.1),
+             vjust = c(0.2,1))
 ggplot(df2) +
   geom_line(aes(x = x, y = y)) +
   geom_point(data = us, aes(x = x, y = y), color = "red", size = 2) +
-  ggrepel::geom_label_repel(data = us, aes(x = x, 
-                                           y = y, 
-                                           label = label),
-                            nudge_x = 0.5) +
+  geom_textbox(data = us, aes(x = x, y = y, hjust = hjust, vjust = vjust,
+                                           label = label)) +
   theme_bw() +
   ylab("Probability") +
-  xlab("All possible sample means for n = 40 (the t distribution)")
+  xlab("The t distribution, describing all possible sample means for n = 40 ")
 ```
 
-The distribution of all possible mean values for a given sample size is the *t* distribution. The shape of the distribution changes according to your **degrees of freedom $(v)$**, which is equal to $n - 1$. Therefore, our sample has $40-1 = 39$ degrees of freedom. As sample size increases, the "tails" of the distribution shrink (Fig. 3.3), reflecting a greater probability of capturing the population mean in your sample. 
+Figure 4.2 describes the distribution of all possible mean values for a given sample size, which is known as the *t* distribution. The shape of the distribution changes according to the **degrees of freedom $(v)$**, which is equal to $n - 1$. Therefore, our sample has $40-1 = 39$ degrees of freedom. As sample size increases, the "tails" of the distribution shrink (Fig. 4.3), reflecting a greater probability of capturing the population mean in your sample. 
 
 ```{r, echo = F, fig.cap = 'The *t* distribution with a range of degrees of freedom $(v)$. Note how the "tails" become larger when $v$ is small.'}
 df3 <- tibble(x = rep(seq(-4, 4, length=100), 3),
@@ -81,15 +88,16 @@ ggplot(data = df3) +
   theme(legend.title  = element_blank())
 ```
 
-Some sample means are more likely than others. In this example, the probability of a sample mean being less than 7.6 cm is less than 2.5%, and the probability of a sample mean being greater than 12.4 cm is less than 2.5%. Therefore, the probability of a sample mean as extreme or more extreme than either value is less than 5%, or 0.05 (Fig. 3.4) .
+Some sample means are more likely than others. In this example, given the null hypothesis of the population mean being equal to 10 $(H_0: \mu = 10)$, the probability of a sample mean being less than 7.6 cm is less than 2.5%, and the probability of a sample mean being greater than 12.4 cm is less than 2.5%. Therefore, the probability of a sample mean as extreme or more extreme than either value is less than 5%, or 0.05 (Fig. 4.4).
 
-```{r, fig.cap = "Another look at the distribution of all possible sample means.", echo = F}
-us <- tibble(x = c(7.6, 12.4, mean(df2$x)),
+```{r, fig.cap = "The *t* distribution is centered around *t* = 0. However, we can contextualize the distribution within our example by adding the hypothesized population mean to *t* $(t + 10\\;\\textrm{cm})$.", echo = F}
+us <- tibble(x = c(7.6, 12.4, mean(df2$x) + 10),
              y = c(0.0253, 0.0253, max(df2$y)),
              label = c("Low probability of occurrence (<0.025)",
                        "Low probability of occurrence (<0.025)",
                        "Most likely to occur"))
-ggplot(df2) +
+df4 <- df2 %>% mutate(x = x + 10)
+ggplot(df4) +
   geom_line(aes(x = x, y = y)) +
   geom_point(data = us, aes(x = x, y = y), color = "red", size = 2) +
   ggrepel::geom_label_repel(data = us, aes(x = x, 
@@ -99,7 +107,7 @@ ggplot(df2) +
                             nudge_y = c(0.075,0.075,-0.025)) +
   theme_bw() +
   ylab("Probability") +
-  xlab("All possible sample means for n = 40 (the t distribution)")
+  xlab("The t distribution scaled to our experiment (t + 10 cm)")
 ```
 
 ### The two-sample *t* test
@@ -112,7 +120,7 @@ $$t = \frac{\bar{X_1} - \bar{X_2}}{s_{\bar{X_1} - \bar{X_2}}}$$
 
 Therefore, when the above *t* statistic is large, it becomes unlikely that two samples were drawn from the same population, and it follows that each *t* statistic is associated with a probability ($P$), just like in our previous example. If $P$ < 0.05, then we can reject the null hypothesis of no difference between the means of our two samples.
 
-This P value is equivalent to the probability of the *t* statistic occurring by chance alone upon repeated sampling, or phrased differently, the probability of the difference in means between samples occurring by chance alone upon repeated sampling.
+This P value is equivalent to the probability of the *t* statistic occurring by chance alone upon repeated sampling given that the null hypothesis is true. When we reject a null hypothesis based on P < 0.05 using a two-sample *t* test, it means that the probability of seeing differences as larger or larger than what we identified is less than 5% if the samples were drawn from the same population.
 
 ### *t* tests in R and Excel
 

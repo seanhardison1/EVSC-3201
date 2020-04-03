@@ -24,7 +24,7 @@
 <meta name="author" content="Sean Hardison" />
 
 
-<meta name="date" content="2020-04-02" />
+<meta name="date" content="2020-04-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -177,7 +177,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>The text below was adapted from <span class="citation">Zar (<a href="#ref-zar1984">1984</a>)</span>.</p>
 <div id="the-t-statistic" class="section level3">
 <h3><span class="header-section-number">4.1.1</span> The <em>t</em> statistic</h3>
-<p><strong>Hypothesis testing</strong> is all about drawing inferences about a broader <em>population</em> given a <em>representative sample</em>. A common approach to hypothesis testing involves comparing the means of two samples. For example, consider an experiment where nitrogen fertilizer was added to the soils of 40 randomly selected plants, with 40 other plants not recieving the nutrient treatment. The heights of each plant were measured after two weeks. The results of the experiment are shown in Figure 3.1.</p>
+<p><strong>Hypothesis testing</strong> is all about drawing inferences about a broader <em>population</em> given a <em>representative sample</em>. A common approach to hypothesis testing involves comparing the means of two samples. For example, consider an experiment where nitrogen fertilizer was added to the soils of 40 randomly selected plants, with 40 other plants not recieving the nutrient treatment. The heights of each plant were measured after two weeks. The results of the experiment are shown in Figure 4.1.</p>
 <p>In this experiment, our null hypothesis (<span class="math inline">\(H_0\)</span>) is that there is no difference in mean height between the plants recieving nutrient and no-nutrient treatments. We can test this hypothesis using a two sample <em>t</em> test, which is designed to infer differences in two populations being sampled.</p>
 <div class="figure"><span id="fig:compare"></span>
 <img src="EVCS-3201_files/figure-html/compare-1.png" alt="Histograms showing the heights of two groups of plants after two weeks of growth. The orange histogram reflects those plants that recieved a nitrogen treatment and the purple histogram shows the plants that did not." width="672" />
@@ -185,25 +185,27 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 Figure 4.1: Histograms showing the heights of two groups of plants after two weeks of growth. The orange histogram reflects those plants that recieved a nitrogen treatment and the purple histogram shows the plants that did not.
 </p>
 </div>
-<p>Before we jump into the <em>t</em> test, consider the mean of the no nutrient sample: 10.3. This mean value is representative of only one of many possible means from samples of size 40 that could have been drawn randomly (Fig. 3.2).</p>
+<p>Before we jump into the <em>t</em> test, consider the mean of the no nutrient sample: 10.3. This mean value is representative of only one of many possible means from samples of size 40 that could have been drawn from the population randomly. If we hypothesize that the true population mean is equal to ten <span class="math inline">\((H_0: \mu = 10\;\textrm{cm})\)</span>, then we can estimate how unlikely our sample mean is by calculating a <em>t</em> statistic:</p>
+<p><span class="math display">\[t = \frac{\bar{X}-\mu}{s_{\bar{X}}} ,\]</span></p>
+<p>where <span class="math inline">\(\bar{X}\)</span> is the sample mean, <span class="math inline">\(\mu\)</span> is hypothesized population mean, and <span class="math inline">\(s_{\bar{X}}\)</span> is the standard deviation of the sample. If our sample mean also equals 10, then <span class="math inline">\(t = 0\)</span>. If we resampled the population a thousand more times, calculated the <em>t</em> statistic for each sample mean, and plotted the histogram of all <em>t</em> statistics, the shape of the histogram would resemble the line in Figure 4.2.</p>
 <div class="figure"><span id="fig:unnamed-chunk-21"></span>
-<img src="EVCS-3201_files/figure-html/unnamed-chunk-21-1.png" alt="The distribution of all possible sample means. Our sample mean is only one of many possible outcomes, the most likely of which is the population mean." width="672" />
+<img src="EVCS-3201_files/figure-html/unnamed-chunk-21-1.png" alt="The *t* distribution, describing all possible sample means for n = 40. This *t* distribution is a *probability distribution*." width="672" />
 <p class="caption">
-Figure 4.2: The distribution of all possible sample means. Our sample mean is only one of many possible outcomes, the most likely of which is the population mean.
+Figure 4.2: The <em>t</em> distribution, describing all possible sample means for n = 40. This <em>t</em> distribution is a <em>probability distribution</em>.
 </p>
 </div>
-<p>The distribution of all possible mean values for a given sample size is the <em>t</em> distribution. The shape of the distribution changes according to your <strong>degrees of freedom <span class="math inline">\((v)\)</span></strong>, which is equal to <span class="math inline">\(n - 1\)</span>. Therefore, our sample has <span class="math inline">\(40-1 = 39\)</span> degrees of freedom. As sample size increases, the “tails” of the distribution shrink (Fig. 3.3), reflecting a greater probability of capturing the population mean in your sample.</p>
+<p>Figure 4.2 describes the distribution of all possible mean values for a given sample size, which is known as the <em>t</em> distribution. The shape of the distribution changes according to the <strong>degrees of freedom <span class="math inline">\((v)\)</span></strong>, which is equal to <span class="math inline">\(n - 1\)</span>. Therefore, our sample has <span class="math inline">\(40-1 = 39\)</span> degrees of freedom. As sample size increases, the “tails” of the distribution shrink (Fig. 4.3), reflecting a greater probability of capturing the population mean in your sample.</p>
 <div class="figure"><span id="fig:unnamed-chunk-22"></span>
 <img src="EVCS-3201_files/figure-html/unnamed-chunk-22-1.png" alt="The *t* distribution with a range of degrees of freedom $(v)$. Note how the &quot;tails&quot; become larger when $v$ is small." width="672" />
 <p class="caption">
 Figure 4.3: The <em>t</em> distribution with a range of degrees of freedom <span class="math inline">\((v)\)</span>. Note how the “tails” become larger when <span class="math inline">\(v\)</span> is small.
 </p>
 </div>
-<p>Some sample means are more likely than others. In this example, the probability of a sample mean being less than 7.6 cm is less than 2.5%, and the probability of a sample mean being greater than 12.4 cm is less than 2.5%. Therefore, the probability of a sample mean as extreme or more extreme than either value is less than 5%, or 0.05 (Fig. 3.4) .</p>
+<p>Some sample means are more likely than others. In this example, given the null hypothesis of the population mean being equal to 10 <span class="math inline">\((H_0: \mu = 10)\)</span>, the probability of a sample mean being less than 7.6 cm is less than 2.5%, and the probability of a sample mean being greater than 12.4 cm is less than 2.5%. Therefore, the probability of a sample mean as extreme or more extreme than either value is less than 5%, or 0.05 (Fig. 4.4).</p>
 <div class="figure"><span id="fig:unnamed-chunk-23"></span>
-<img src="EVCS-3201_files/figure-html/unnamed-chunk-23-1.png" alt="Another look at the distribution of all possible sample means." width="672" />
+<img src="EVCS-3201_files/figure-html/unnamed-chunk-23-1.png" alt="The *t* distribution is centered around *t* = 0. However, we can contextualize the distribution within our example by adding the hypothesized population mean to *t* $(t + 10\;\textrm{cm})$." width="672" />
 <p class="caption">
-Figure 4.4: Another look at the distribution of all possible sample means.
+Figure 4.4: The <em>t</em> distribution is centered around <em>t</em> = 0. However, we can contextualize the distribution within our example by adding the hypothesized population mean to <em>t</em> <span class="math inline">\((t + 10\;\textrm{cm})\)</span>.
 </p>
 </div>
 </div>
@@ -213,7 +215,7 @@ Figure 4.4: Another look at the distribution of all possible sample means.
 <p>The <em>t</em> statistic for a two-sample <em>t</em> test:</p>
 <p><span class="math display">\[t = \frac{\bar{X_1} - \bar{X_2}}{s_{\bar{X_1} - \bar{X_2}}}\]</span></p>
 <p>Therefore, when the above <em>t</em> statistic is large, it becomes unlikely that two samples were drawn from the same population, and it follows that each <em>t</em> statistic is associated with a probability (<span class="math inline">\(P\)</span>), just like in our previous example. If <span class="math inline">\(P\)</span> &lt; 0.05, then we can reject the null hypothesis of no difference between the means of our two samples.</p>
-<p>This P value is equivalent to the probability of the <em>t</em> statistic occurring by chance alone upon repeated sampling, or phrased differently, the probability of the difference in means between samples occurring by chance alone upon repeated sampling.</p>
+<p>This P value is equivalent to the probability of the <em>t</em> statistic occurring by chance alone upon repeated sampling given that the null hypothesis is true. When we reject a null hypothesis based on P &lt; 0.05 using a two-sample <em>t</em> test, it means that the probability of seeing differences as larger or larger than what we identified is less than 5% if the samples were drawn from the same population.</p>
 </div>
 <div id="t-tests-in-r-and-excel" class="section level3">
 <h3><span class="header-section-number">4.1.3</span> <em>t</em> tests in R and Excel</h3>
