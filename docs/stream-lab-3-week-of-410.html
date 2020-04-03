@@ -176,8 +176,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="hypothesis-testing" class="section level2">
 <h2><span class="header-section-number">4.1</span> Hypothesis testing</h2>
 <p>The goal of the text and figures below is to describe the <em>t</em> test in a visually intuitive way, and was mostly derived from <span class="citation">Zar (<a href="#ref-zar1984">1984</a>)</span>. Further information and another example are provided in your lab manuals on page 36.</p>
-<div id="the-t-statistic" class="section level3">
-<h3><span class="header-section-number">4.1.1</span> The <em>t</em> statistic</h3>
 <p><strong>Hypothesis testing</strong> is all about drawing inferences about a broader <em>population</em> given a <em>representative sample</em>. A common approach to hypothesis testing involves comparing the means of two samples. For example, consider an experiment where nitrogen fertilizer was added to the soils of 40 randomly selected plants, with 40 other plants not recieving the nutrient treatment. The heights of each plant were measured after two weeks. The results of the experiment are shown in Figure 4.1.</p>
 <p>In this experiment, our null hypothesis (<span class="math inline">\(H_0\)</span>) is that there is no difference in mean height between the plants recieving nutrient and no-nutrient treatments. We can test this hypothesis using a two sample <em>t</em> test, which is designed to infer differences in two populations being sampled.</p>
 <div class="figure"><span id="fig:compare"></span>
@@ -186,7 +184,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 Figure 4.1: Histograms showing the heights of two groups of plants after two weeks of growth. The orange histogram reflects those plants that recieved a nitrogen treatment and the purple histogram shows the plants that did not.
 </p>
 </div>
-<p>Before we jump into the <em>t</em> test, consider the mean of the no nutrient sample: 10.3. This mean value is representative of only one of many possible means from samples of size 40 that could have been drawn from the population randomly. If we hypothesize that the true population mean is equal to ten <span class="math inline">\((H_0: \mu = 10\;\textrm{cm})\)</span>, then we can estimate how unlikely our sample mean is by calculating a <em>t</em> statistic:</p>
+<div id="the-t-statistic" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> The <em>t</em> statistic</h3>
+<p>Before we jump into the two-sample <em>t</em> test, let’s explore some concepts.</p>
+<p>First consider the mean height of the no nitrogen sample: 10.3 cm. Next, say we found a value in the literature suggesting that the mean height of all plants of this species was 10 cm. Is the mean of this sample significantly different from the established value?</p>
+<p>This leaves us with the null hypothesis <span class="math inline">\((H_0)\)</span> that there is no difference between the population mean <span class="math inline">\((\mu)\)</span> of 10 cm and our sample mean <span class="math inline">\((\bar{X})\)</span> of 10.3 cm <span class="math inline">\((H_0: \mu = \bar{X})\)</span>. To test this hypothesis, we start with the idea that the mean of our sample is only one of many possible means from samples of size 40 that could have been drawn at random from the population. Given the population mean of 10 cm <span class="math inline">\((\mu = 10\;\textrm{cm})\)</span>, we can estimate how unlikely our sample mean is by calculating a <em>t</em> statistic:</p>
 <p><span class="math display">\[t = \frac{\bar{X}-\mu}{s_{\bar{X}}} ,\]</span></p>
 <p>where <span class="math inline">\(\bar{X}\)</span> is the sample mean, <span class="math inline">\(\mu\)</span> is hypothesized population mean, and <span class="math inline">\(s_{\bar{X}}\)</span> is the standard deviation of the sample. If our sample mean also equals 10, then <span class="math inline">\(t = 0\)</span>. If we resampled the population a thousand more times, calculated the <em>t</em> statistic for each sample mean, and plotted the histogram of all <em>t</em> statistics, the shape of the histogram would resemble the line in Figure 4.2.</p>
 <div class="figure"><span id="fig:unnamed-chunk-3"></span>

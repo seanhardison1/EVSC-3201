@@ -10,8 +10,6 @@ library(ggtext)
 
 The goal of the text and figures below is to describe the *t* test in a visually intuitive way, and was mostly derived from @zar1984. Further information and another example are provided in your lab manuals on page 36. 
 
-### The *t* statistic
-
 **Hypothesis testing** is all about drawing inferences about a broader *population* given a *representative sample*. A common approach to hypothesis testing involves comparing the means of two samples. For example, consider an experiment where nitrogen fertilizer was added to the soils of 40 randomly selected plants, with 40 other plants not recieving the nutrient treatment. The heights of each plant were measured after two weeks. The results of the experiment are shown in Figure 4.1.
 
 In this experiment, our null hypothesis ($H_0$) is that there is no difference in mean height between the plants recieving nutrient and no-nutrient treatments. We can test this hypothesis using a two sample *t* test, which is designed to infer differences in two populations being sampled. 
@@ -44,7 +42,13 @@ ggplot(data = df) +
   theme_bw()
 ```
 
-Before we jump into the *t* test, consider the mean of the no nutrient sample: `r round(mean(df$c1), 1)`. This mean value is representative of only one of many possible means from samples of size 40 that could have been drawn from the population randomly. If we hypothesize that the true population mean is equal to ten $(H_0: \mu = 10\;\textrm{cm})$, then we can estimate how unlikely our sample mean is by calculating a *t* statistic:
+### The *t* statistic
+
+Before we jump into the two-sample *t* test, let's explore some concepts.
+
+First consider the mean height of the no nitrogen sample: `r round(mean(df$c1), 1)` cm. Next, say we found a value in the literature suggesting that the mean height of all plants of this species was 10 cm. Is the mean of this sample significantly different from the established value?
+
+This leaves us with the null hypothesis $(H_0)$ that there is no difference between the population mean $(\mu)$ of 10 cm and our sample mean $(\bar{X})$ of `r round(mean(df$c1), 1)` cm $(H_0: \mu = \bar{X})$. To test this hypothesis, we start with the idea that the mean of our sample is only one of many possible means from samples of size 40 that could have been drawn at random from the population. Given the population mean of 10 cm $(\mu = 10\;\textrm{cm})$, we can estimate how unlikely our sample mean is by calculating a *t* statistic:
 
 $$t = \frac{\bar{X}-\mu}{s_{\bar{X}}} ,$$
 
