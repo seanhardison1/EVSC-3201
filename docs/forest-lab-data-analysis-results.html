@@ -219,7 +219,7 @@ summary_env =<span class="st"> </span>env <span class="op">%&gt;%</span><span cl
                 <span class="dt">width =</span> <span class="fl">0.25</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Mean slope angle (°)&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
-<p><img src="EVCS-3201_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="EVCS-3201_files/figure-html/angle-1.png" width="672" /></p>
 </div>
 <div id="horizon-thickness" class="section level3 unnumbered">
 <h3>Horizon thickness</h3>
@@ -230,7 +230,7 @@ summary_env =<span class="st"> </span>env <span class="op">%&gt;%</span><span cl
                 <span class="dt">width =</span> <span class="fl">0.25</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Mean horizon thickness (cm)&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
-<p><img src="EVCS-3201_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="EVCS-3201_files/figure-html/thickness-1.png" width="672" /></p>
 </div>
 <div id="soil-temperature" class="section level3 unnumbered">
 <h3>Soil temperature</h3>
@@ -241,7 +241,7 @@ summary_env =<span class="st"> </span>env <span class="op">%&gt;%</span><span cl
                 <span class="dt">width =</span> <span class="fl">0.25</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Mean soil temperature (°F)&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
-<p><img src="EVCS-3201_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="EVCS-3201_files/figure-html/temperature-1.png" width="672" /></p>
 </div>
 <div id="soil-moisture" class="section level3 unnumbered">
 <h3>Soil moisture</h3>
@@ -252,7 +252,7 @@ summary_env =<span class="st"> </span>env <span class="op">%&gt;%</span><span cl
                 <span class="dt">width =</span> <span class="fl">0.25</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Mean soil moisture (%)&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
-<p><img src="EVCS-3201_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="EVCS-3201_files/figure-html/moisture-1.png" width="672" /></p>
 </div>
 </div>
 <div id="environmental-data-linear-models-and-scatter-plots-q2" class="section level2">
@@ -264,7 +264,7 @@ summary_env =<span class="st"> </span>env <span class="op">%&gt;%</span><span cl
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> mean_moisture, <span class="dt">y =</span> mean_temperature)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Mean temperature (°F)&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Mean soil moisture (%)&quot;</span>)</code></pre></div>
-<p><img src="EVCS-3201_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="EVCS-3201_files/figure-html/m-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">temp_moisture_mod =<span class="st"> </span><span class="kw">lm</span>(mean_temperature <span class="op">~</span><span class="st"> </span>mean_moisture, <span class="dt">data =</span> summary_env)
 <span class="kw">summary</span>(temp_moisture_mod)</code></pre></div>
 <pre><code>## 
@@ -292,7 +292,7 @@ summary_env =<span class="st"> </span>env <span class="op">%&gt;%</span><span cl
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> mean_thickness, <span class="dt">y =</span> mean_moisture)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Mean temperature (°F)&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Mean horizon thickness (cm)&quot;</span>)</code></pre></div>
-<p><img src="EVCS-3201_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><img src="EVCS-3201_files/figure-html/m1-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">moist_hor_thickness_mod =<span class="st"> </span><span class="kw">lm</span>(mean_moisture <span class="op">~</span><span class="st"> </span>mean_thickness, <span class="dt">data =</span> summary_env)
 <span class="kw">summary</span>(moist_hor_thickness_mod)</code></pre></div>
 <pre><code>## 
@@ -319,7 +319,7 @@ summary_env =<span class="st"> </span>env <span class="op">%&gt;%</span><span cl
 <span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Mean temperature (°F)&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Mean horizon thickness (cm)&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_smooth</span>(<span class="kw">aes</span>(<span class="dt">x =</span> mean_thickness, <span class="dt">y =</span> mean_temperature), <span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>)</code></pre></div>
-<p><img src="EVCS-3201_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><img src="EVCS-3201_files/figure-html/m2-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">temp_thick_mod =<span class="st"> </span><span class="kw">lm</span>(mean_temperature <span class="op">~</span><span class="st"> </span>mean_thickness, <span class="dt">data =</span> summary_env)
 <span class="kw">summary</span>(temp_thick_mod)</code></pre></div>
 <pre><code>## 
@@ -348,7 +348,7 @@ summary_env =<span class="st"> </span>env <span class="op">%&gt;%</span><span cl
 <span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Mean horizon thickness (cm)&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Mean slope angle (°)&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_smooth</span>(<span class="kw">aes</span>(<span class="dt">x =</span> mean_slope_angle, <span class="dt">y =</span> mean_thickness), <span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>)</code></pre></div>
-<p><img src="EVCS-3201_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><img src="EVCS-3201_files/figure-html/m3-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">thickness_slope_mod =<span class="st"> </span><span class="kw">lm</span>(mean_thickness <span class="op">~</span><span class="st"> </span>mean_slope_angle, <span class="dt">data =</span> summary_env)
 <span class="kw">summary</span>(thickness_slope_mod)</code></pre></div>
 <pre><code>## 
@@ -376,7 +376,7 @@ summary_env =<span class="st"> </span>env <span class="op">%&gt;%</span><span cl
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> mean_slope_angle, <span class="dt">y =</span> mean_moisture)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Mean soil moisture (%)&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Mean slope angle (°)&quot;</span>) </code></pre></div>
-<p><img src="EVCS-3201_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p><img src="EVCS-3201_files/figure-html/m4-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">moist_slope_mod =<span class="st"> </span><span class="kw">lm</span>(mean_moisture <span class="op">~</span><span class="st"> </span>mean_slope_angle, <span class="dt">data =</span> summary_env)
 <span class="kw">summary</span>(moist_slope_mod)</code></pre></div>
 <pre><code>## 
@@ -470,7 +470,7 @@ rel_freq =<span class="st"> </span>forest <span class="op">%&gt;%</span><span cl
 <span class="st">  </span><span class="co">#add color palette </span>
 <span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">as.vector</span>(pals<span class="op">::</span><span class="kw">polychrome</span>(<span class="dv">35</span>)))<span class="op">+</span>
 <span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
-<p><img src="EVCS-3201_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><img src="EVCS-3201_files/figure-html/bar1-1.png" width="672" /></p>
 </div>
 <div id="species-relative-dominance" class="section level3 unnumbered">
 <h3>Species relative dominance</h3>
@@ -491,7 +491,7 @@ rel_dom =<span class="st"> </span>forest <span class="op">%&gt;%</span><span cla
 <span class="st">  </span><span class="co">#add color palette </span>
 <span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">as.vector</span>(pals<span class="op">::</span><span class="kw">polychrome</span>(<span class="dv">35</span>)))<span class="op">+</span>
 <span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
-<p><img src="EVCS-3201_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p><img src="EVCS-3201_files/figure-html/bar2-1.png" width="672" /></p>
 </div>
 <div id="species-importance" class="section level3 unnumbered">
 <h3>Species importance</h3>
@@ -513,7 +513,7 @@ importance =<span class="st"> </span>forest <span class="op">%&gt;%</span><span 
 <span class="st">  </span><span class="co">#add color palette </span>
 <span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">as.vector</span>(pals<span class="op">::</span><span class="kw">polychrome</span>(<span class="dv">35</span>))) <span class="op">+</span>
 <span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
-<p><img src="EVCS-3201_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p><img src="EVCS-3201_files/figure-html/bar3-1.png" width="672" /></p>
 
 </div>
 </div>

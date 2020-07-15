@@ -191,22 +191,22 @@ Figure 4.1: Histograms showing the heights of two groups of plants after two wee
 <p>This leaves us with the null hypothesis <span class="math inline">\((H_0)\)</span> that there is no difference between the population mean <span class="math inline">\((\mu)\)</span> of 10 cm and our sample mean <span class="math inline">\((\bar{X})\)</span> of 10.3 cm <span class="math inline">\((H_0: \mu = \bar{X})\)</span>. To test this hypothesis, we start with the idea that the mean of our sample is only one of many possible means from samples of size 40 that could have been drawn at random from the population. Given the population mean of 10 cm <span class="math inline">\((\mu = 10\;\textrm{cm})\)</span>, we can estimate how unlikely our sample mean is by calculating a <em>t</em> statistic:</p>
 <p><span class="math display">\[t = \frac{\bar{X}-\mu}{s_{\bar{X}}} ,\]</span></p>
 <p>where <span class="math inline">\(\bar{X}\)</span> is the sample mean, <span class="math inline">\(\mu\)</span> is hypothesized population mean, and <span class="math inline">\(s_{\bar{X}}\)</span> is the standard deviation of the sample. If our sample mean also equals 10, then <span class="math inline">\(t = 0\)</span>. If we resampled the population a thousand more times, calculated the <em>t</em> statistic for each sample mean, and plotted the histogram of all <em>t</em> statistics, the shape of the histogram would resemble the line in Figure 4.2.</p>
-<div class="figure"><span id="fig:unnamed-chunk-21"></span>
-<img src="EVCS-3201_files/figure-html/unnamed-chunk-21-1.png" alt="The *t* distribution, describing all possible sample means for n = 40. This *t* distribution is a *probability distribution*." width="672" />
+<div class="figure"><span id="fig:unnamed-chunk-8"></span>
+<img src="EVCS-3201_files/figure-html/unnamed-chunk-8-1.png" alt="The *t* distribution, describing all possible sample means for n = 40. This *t* distribution is a *probability distribution*." width="672" />
 <p class="caption">
 Figure 4.2: The <em>t</em> distribution, describing all possible sample means for n = 40. This <em>t</em> distribution is a <em>probability distribution</em>.
 </p>
 </div>
 <p>Figure 4.2 describes the distribution of all possible mean values for a given sample size, which is known as the <em>t</em> distribution. The shape of the distribution changes according to the <strong>degrees of freedom <span class="math inline">\((v)\)</span></strong>, which is equal to <span class="math inline">\(n - 1\)</span>. Therefore, our sample has <span class="math inline">\(40-1 = 39\)</span> degrees of freedom. As sample size increases, the &quot;tails&quot; of the distribution shrink (Fig. 4.3), reflecting a greater probability of capturing the population mean in your sample.</p>
-<div class="figure"><span id="fig:unnamed-chunk-22"></span>
-<img src="EVCS-3201_files/figure-html/unnamed-chunk-22-1.png" alt="The *t* distribution with a range of degrees of freedom $(v)$. Note how the &quot;tails&quot; become larger when $v$ is small." width="672" />
+<div class="figure"><span id="fig:unnamed-chunk-9"></span>
+<img src="EVCS-3201_files/figure-html/unnamed-chunk-9-1.png" alt="The *t* distribution with a range of degrees of freedom $(v)$. Note how the &quot;tails&quot; become larger when $v$ is small." width="672" />
 <p class="caption">
 Figure 4.3: The <em>t</em> distribution with a range of degrees of freedom <span class="math inline">\((v)\)</span>. Note how the &quot;tails&quot; become larger when <span class="math inline">\(v\)</span> is small.
 </p>
 </div>
 <p>Some sample means are more likely than others. In this example, given the null hypothesis of the population mean being equal to 10 <span class="math inline">\((H_0: \mu = 10)\)</span>, the probability of a sample mean being less than 7.6 cm is less than 2.5%, and the probability of a sample mean being greater than 12.4 cm is less than 2.5%. Therefore, the probability of a sample mean as extreme or more extreme than either value is less than 5%, or 0.05 (Fig. 4.4).</p>
-<div class="figure"><span id="fig:unnamed-chunk-23"></span>
-<img src="EVCS-3201_files/figure-html/unnamed-chunk-23-1.png" alt="The *t* distribution is centered around *t* = 0. However, we can contextualize the distribution within our example by adding the hypothesized population mean to *t* $(t + 10\;\textrm{cm})$." width="672" />
+<div class="figure"><span id="fig:unnamed-chunk-10"></span>
+<img src="EVCS-3201_files/figure-html/unnamed-chunk-10-1.png" alt="The *t* distribution is centered around *t* = 0. However, we can contextualize the distribution within our example by adding the hypothesized population mean to *t* $(t + 10\;\textrm{cm})$." width="672" />
 <p class="caption">
 Figure 4.4: The <em>t</em> distribution is centered around <em>t</em> = 0. However, we can contextualize the distribution within our example by adding the hypothesized population mean to <em>t</em> <span class="math inline">\((t + 10\;\textrm{cm})\)</span>.
 </p>
